@@ -181,7 +181,7 @@ export default function Home() {
           <h2 className="text-2xl font-semibold tracking-tight text-rose-50">About Me</h2>
           <p className="mt-4 max-w-4xl text-sm leading-7 text-rose-100/90 md:text-base">
             I don’t just build dashboards — I build decision systems.
-            I specialize in transforming raw, messy data into clean, automated Power BI solutions
+            I specialize in transforming raw, messy data into clean, automated solutions
             that reduce manual work, improve reporting accuracy, and help businesses make confident,
             data-driven decisions. My focus is not just visualization, but clarity, performance, and measurable business impact.
           </p>
@@ -313,9 +313,9 @@ export default function Home() {
         </div>
       </section>
 
-      <footer id="contact" className="relative w-full overflow-hidden bg-portfolio-dark py-24 md:py-32">
+      <footer id="contact" className="relative w-full bg-portfolio-dark py-24 md:py-32">
         <div className="pointer-events-none absolute inset-0 bg-portfolio-dark" />
-        <div className="pointer-events-none animate-drift absolute left-1/2 top-10 h-56 w-56 -translate-x-1/2 rounded-full bg-portfolio-coral/25 blur-3xl" />
+        <div className="pointer-events-none animate-drift absolute left-1/2 -top-16 h-56 w-56 -translate-x-1/2 rounded-full bg-portfolio-coral/25 blur-3xl" />
 
         <div className="relative mx-auto w-full max-w-7xl px-6 md:px-12">
           <div className="mx-auto max-w-5xl animate-reveal rounded-[2.5rem] border border-white/15 bg-black/30 p-10 text-center shadow-[0_24px_60px_rgba(0,0,0,0.35)] backdrop-blur-2xl md:p-16">
