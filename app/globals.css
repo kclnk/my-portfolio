@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  color-scheme: dark; 
 }
 
 * {
@@ -24,7 +24,7 @@ body {
 }
 
 html {
-  font-size: 17px;
+  font-size: 20px;
 }
 
 .font-name-display {
@@ -48,7 +48,7 @@ h3 {
   top: 0;
   height: 56px;
   pointer-events: none;
-  background: linear-gradient(to bottom, rgba(45, 20, 44, 0.2), rgba(45, 20, 44, 0));
+  display: none; /* Hide the gradient overlay */
 }
 
 @keyframes gradientShift {

@@ -127,7 +127,7 @@ export default function Home() {
         </div>
       </div>
 
-      <section id="cover" className="animate-gradient relative flex min-h-[112svh] w-full items-center overflow-hidden bg-gradient-to-br from-portfolio-coral via-portfolio-crimson to-portfolio-wine pb-16 pt-20 md:min-h-[118svh] md:pb-20 md:pt-24">
+      <section id="cover" className="relative flex min-h-[112svh] w-full items-center overflow-hidden bg-portfolio-dark pb-16 pt-20 md:min-h-[118svh] md:pb-20 md:pt-24">
         <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-6 md:grid-cols-[1.2fr_0.8fr] md:gap-16 md:px-12">
           <div className="order-2 animate-reveal delay-1 md:order-1">
             <p className="hero-chip mb-5 inline-flex rounded-full border border-white/45 bg-white/15 px-3 py-1 text-xs font-semibold tracking-wide text-rose-50 backdrop-blur">
@@ -176,7 +176,7 @@ export default function Home() {
         <div className="pointer-events-none absolute bottom-0 left-1/2 w-[90%] -translate-x-1/2 border-t border-dashed border-white/45" />
       </section>
 
-      <section id="about" className="section-blend relative w-full bg-gradient-to-b from-portfolio-crimson via-portfolio-wine to-portfolio-plum py-16 md:py-22">
+      <section id="about" className="section-blend relative w-full bg-portfolio-dark py-16 md:py-22">
         <div className="mx-auto w-full max-w-7xl animate-reveal px-6 md:px-12">
           <h2 className="text-2xl font-semibold tracking-tight text-rose-50">About Me</h2>
           <p className="mt-4 max-w-4xl text-sm leading-7 text-rose-100/90 md:text-base">
@@ -188,7 +188,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="education-skills" className="section-blend relative w-full bg-gradient-to-br from-portfolio-coral via-portfolio-crimson to-portfolio-wine py-16 md:py-22">
+      <section id="education-skills" className="section-blend relative w-full bg-portfolio-dark py-16 md:py-22">
         <div className="mx-auto grid w-full max-w-7xl gap-8 px-6 md:grid-cols-2 md:px-12">
           <article className="card-lift animate-reveal delay-1 rounded-[2.5rem] border border-white/10 bg-black/20 p-10 backdrop-blur-sm md:p-14">
             <h2 className="text-2xl font-semibold tracking-tight text-rose-50">Education</h2>
@@ -218,7 +218,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="experience" className="section-blend relative w-full bg-gradient-to-br from-portfolio-coral via-portfolio-crimson to-portfolio-plum py-16 md:py-22">
+      <section id="experience" className="section-blend relative w-full bg-portfolio-dark py-16 md:py-22">
         <div className="mx-auto w-full max-w-7xl animate-reveal px-6 md:px-12">
           <h2 className="text-2xl font-semibold tracking-tight text-rose-50">Work Experience</h2>
           <div className="mt-6 space-y-5 text-sm text-rose-100/90 md:text-base">
@@ -245,7 +245,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="services" className="section-blend relative w-full bg-gradient-to-r from-portfolio-coral via-portfolio-crimson to-portfolio-wine py-16 md:py-22">
+      <section id="services" className="section-blend relative w-full bg-portfolio-dark py-16 md:py-22">
         <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
           <h2 className="text-2xl font-semibold tracking-tight text-rose-50">Offered Services</h2>
           <ul className="mt-5 grid gap-3 text-sm text-rose-100/90 md:grid-cols-2 md:text-base">
@@ -262,7 +262,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="projects" className="section-blend relative w-full bg-gradient-to-br from-portfolio-coral via-portfolio-crimson to-portfolio-wine py-16 md:py-22">
+      <section id="projects" className="section-blend relative w-full bg-portfolio-dark py-16 md:py-22">
         <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
           <h2 className="text-2xl font-semibold tracking-tight text-rose-50">Projects</h2>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
@@ -285,7 +285,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="proof" className="section-blend relative w-full bg-gradient-to-r from-portfolio-crimson via-portfolio-wine to-portfolio-plum py-16 md:py-22">
+      <section id="proof" className="section-blend relative w-full bg-portfolio-dark py-16 md:py-22">
         <div className="mx-auto grid w-full max-w-7xl gap-8 px-6 md:grid-cols-2 md:px-12">
           <article className="card-lift animate-reveal delay-1 rounded-[2.5rem] border border-white/10 bg-black/20 p-10 backdrop-blur-sm md:p-14">
             <h2 className="text-2xl font-semibold tracking-tight text-rose-50">Achievements</h2>
@@ -314,7 +314,7 @@ export default function Home() {
       </section>
 
       <footer id="contact" className="relative w-full overflow-hidden bg-portfolio-dark py-24 md:py-32">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-portfolio-crimson/50 via-portfolio-wine/45 to-portfolio-dark" />
+        <div className="pointer-events-none absolute inset-0 bg-portfolio-dark" />
         <div className="pointer-events-none animate-drift absolute left-1/2 top-10 h-56 w-56 -translate-x-1/2 rounded-full bg-portfolio-coral/25 blur-3xl" />
 
         <div className="relative mx-auto w-full max-w-7xl px-6 md:px-12">
