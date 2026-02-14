@@ -1,0 +1,374 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body), Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  background: #2d142c;
+  color: #fff7f5;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+html {
+  font-size: 17px;
+}
+
+.font-name-display {
+  font-family: var(--font-name), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+h2,
+h3 {
+  font-family: var(--font-title), Inter, Segoe UI, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.012em;
+}
+
+.section-blend::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 56px;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(45, 20, 44, 0.2), rgba(45, 20, 44, 0));
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes floatBlob {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-22px) scale(1.08);
+  }
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slowDrift {
+  0%,
+  100% {
+    transform: translate(-50%, 0px) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -18px) scale(1.08);
+  }
+}
+
+@keyframes tilePulse {
+  0%,
+  100% {
+    opacity: 0.92;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes tileSweep {
+  from {
+    transform: translateX(-135%) skewX(-18deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.25;
+  }
+  to {
+    transform: translateX(145%) skewX(-18deg);
+    opacity: 0;
+  }
+}
+
+@keyframes linkGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.28);
+  }
+}
+
+@layer utilities {
+  .animate-gradient {
+    background-size: 260% 260%;
+    animation: gradientShift 7s ease infinite;
+  }
+
+  .animate-float-slow {
+    animation: floatBlob 7s ease-in-out infinite;
+  }
+
+  .animate-float-fast {
+    animation: floatBlob 4.5s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glowPulse 4.5s ease-in-out infinite;
+  }
+
+  .animate-reveal {
+    opacity: 0;
+    animation: revealUp 1.05s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .delay-1 {
+    animation-delay: 180ms;
+  }
+
+  .delay-2 {
+    animation-delay: 320ms;
+  }
+
+  .delay-3 {
+    animation-delay: 460ms;
+  }
+
+  .animate-drift {
+    animation: slowDrift 10s ease-in-out infinite;
+  }
+
+  .card-lift {
+    position: relative;
+    overflow: hidden;
+    transition: transform 250ms ease, box-shadow 250ms ease, background-color 250ms ease, border-color 250ms ease;
+    animation: tilePulse 3.2s ease-in-out infinite;
+  }
+
+  .card-lift::after {
+    content: "";
+    position: absolute;
+    inset: -20% -35%;
+    pointer-events: none;
+    background: linear-gradient(105deg, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0.22) 50%, rgba(255, 255, 255, 0) 65%);
+    opacity: 0;
+    transform: translateX(-135%) skewX(-18deg);
+  }
+
+  .card-lift.animate-reveal {
+    opacity: 0;
+    animation: revealUp 1.05s cubic-bezier(0.22, 1, 0.36, 1) forwards, tilePulse 3.2s ease-in-out infinite;
+  }
+
+  .card-lift:hover {
+    transform: translateY(-10px) scale(1.035);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.36);
+  }
+
+  .card-lift:hover::after {
+    animation: tileSweep 1.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .contact-link {
+    display: inline-block;
+    transition: transform 220ms ease, color 220ms ease, opacity 220ms ease;
+  }
+
+  .contact-link:hover {
+    transform: translateY(-2px);
+    color: #ffd9d6;
+    animation: linkGlow 900ms ease;
+  }
+
+  .top-arrow {
+    transition: transform 240ms ease, color 240ms ease, opacity 240ms ease;
+  }
+
+  .top-arrow:hover {
+    transform: translateY(-5px) scale(1.08);
+  }
+
+  .photo-cutout {
+    position: relative;
+    overflow: hidden;
+    border-radius: 30% / 24%;
+    backdrop-filter: blur(2px);
+  }
+
+  .photo-cutout-squircle {
+    border-radius: 0;
+    clip-path: var(--sq-path-mobile);
+    background:
+      radial-gradient(circle at 16% 14%, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.14) 22%, rgba(255, 255, 255, 0) 48%),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.08) 45%, rgba(255, 255, 255, 0.03));
+    padding: 20px;
+    backdrop-filter: blur(6px) saturate(1.1);
+    -webkit-backdrop-filter: blur(6px) saturate(1.1);
+    box-shadow: 0 30px 62px rgba(0, 0, 0, 0.38), inset 0 0 0 1px rgba(255, 255, 255, 0.26), inset 0 12px 20px rgba(255, 255, 255, 0.08);
+    isolation: isolate;
+  }
+
+  .photo-cutout-squircle::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    clip-path: var(--sq-path-mobile);
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.17) 21%, rgba(255, 255, 255, 0.03) 44%, rgba(255, 255, 255, 0) 64%);
+    opacity: 0.8;
+    z-index: 1;
+  }
+
+  .photo-cutout-squircle::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    clip-path: var(--sq-path-mobile);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.36), inset 0 14px 24px rgba(255, 255, 255, 0.16), inset 0 -16px 24px rgba(0, 0, 0, 0.14);
+    z-index: 2;
+  }
+
+  .photo-inner {
+    background: linear-gradient(145deg, rgba(14, 8, 24, 0.3), rgba(14, 8, 24, 0.12));
+    isolation: isolate;
+    border-radius: 0;
+    clip-path: var(--sq-inner-mobile);
+  }
+
+  .photo-inner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    clip-path: var(--sq-inner-mobile);
+    box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.22), inset 0 8px 14px rgba(255, 255, 255, 0.06);
+    z-index: 2;
+  }
+
+  .photo-inner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 20% 12%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.12) 15%, rgba(255, 255, 255, 0) 38%),
+      linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
+    z-index: 1;
+  }
+
+  .photo-hover-shell {
+    --photo-rotate: 0deg;
+    --photo-shift-x: 0px;
+    --photo-shift-y: 0px;
+    --photo-scale: 1;
+  }
+
+  .photo-image {
+    object-position: center 24%;
+    transform: translate3d(var(--photo-shift-x), var(--photo-shift-y), 0) rotate(var(--photo-rotate)) scale(var(--photo-scale));
+    transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1), filter 420ms ease;
+    filter: none;
+  }
+
+  .photo-random-active .photo-image {
+    filter: saturate(1.05) contrast(1.04);
+  }
+
+  @media (min-width: 640px) {
+    .photo-cutout-squircle {
+      clip-path: var(--sq-path-desktop);
+    }
+
+    .photo-cutout-squircle::before,
+    .photo-cutout-squircle::after {
+      clip-path: var(--sq-path-desktop);
+    }
+
+    .photo-inner,
+    .photo-inner::before {
+      clip-path: var(--sq-inner-desktop);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .animate-gradient {
+      animation: none;
+      background-size: 100% 100%;
+    }
+
+    .animate-float-slow,
+    .animate-float-fast,
+    .animate-drift {
+      animation: none;
+      opacity: 1;
+    }
+
+    .card-lift {
+      animation: none;
+    }
+
+    .card-lift.animate-reveal {
+      animation: revealUp 1.05s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-gradient,
+    .animate-float-slow,
+    .animate-float-fast,
+    .animate-glow,
+    .animate-reveal,
+    .animate-drift {
+      animation: none !important;
+      opacity: 1 !important;
+    }
+
+    .card-lift {
+      transition: none;
+    }
+
+    .photo-image {
+      transition: none;
+      transform: none !important;
+    }
+  }
+}
