@@ -140,7 +140,7 @@ export default function Home() {
               Python • SQL • Excel • Power BI
             </p>
             <p className="mt-6 max-w-3xl text-base leading-8 text-rose-100/95 md:text-lg">
-              Turning data into insights based on Results-driven, detail-oriented Analysis and, hands-on experiencethrough dashboards, business intelligence, and clear storytelling.
+              Turning data into insights based on Results-driven, detail-oriented Analysis and, hands-on experience through dashboards, business intelligence, and clear storytelling.
               Transforming data into actionable decisions.
             </p>
           </div>
