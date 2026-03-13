@@ -24,6 +24,18 @@ const skills = {
 
 const projects = [
   {
+    title: "HR Analytics Dashboard Suite (Workforce, Attrition, Compensation)",
+    objective: "Developed an HR analytics dashboard suite in Power BI to analyze workforce performance, employee demographics, and attrition trends. The project included cleaning and transforming the dataset, removing irrelevant fields, creating calculated columns, and building DAX measures to support key HR metrics.",
+    outcome: "Delivered three interactive dashboards providing insights into workforce overview, employee attrition patterns, and compensation distribution. The dashboards help HR teams monitor workforce trends, identify potential retention issues, and support more informed, data-driven HR decisions.",
+    images: ["/Thumbnail2.png", "/Report#1 - Workforce Overview.png", "/Report#2 - Attrition Analysis.png", "/Report#4 - Compensation Analysis.png"],
+  },
+  {
+    title: "HR Analytics Dashboard Suite (Demographics, Satisfaction & Career)",
+    objective: "Developed a comprehensive HR analytics dashboard suite in Power BI to analyze employee demographics, job satisfaction, workforce performance, and career progression patterns. The project involved cleaning and transforming the dataset, creating calculated columns, and developing DAX measures to support key HR KPIs and workforce insights.",
+    outcome: "Delivered four interactive dashboards that provide clear visibility into workforce demographics, satisfaction levels, attrition trends, and career development patterns. The dashboards enable HR teams to quickly identify employee trends and support more informed, data-driven HR decisions.",
+    images: ["/Thumbnail1.png", "/Report#3 - Demographics Analysis.png", "/Report#5 - Job & Satisfaction Analysis.png", "/Report#6 - Career Progression.png"],
+  },
+  {
     title: "Pharmaceuticals Sales Performance Dashboard",
     objective: "Developed an interactive dashboard to monitor pharmaceutical sales performance, product distribution, and revenue trends across multiple categories and regions.",
     outcome: "Enabled clear visibility of top-performing products and revenue drivers, improved KPI tracking accuracy, and streamlined performance reporting for faster business insights.",
@@ -516,4 +528,5 @@ export default function Home() {
     </main>
   );
 }
+
 
