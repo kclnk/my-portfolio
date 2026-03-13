@@ -27,25 +27,25 @@ const projects = [
     title: "Pharmaceuticals Sales Performance Dashboard",
     objective: "Developed an interactive dashboard to monitor pharmaceutical sales performance, product distribution, and revenue trends across multiple categories and regions.",
     outcome: "Enabled clear visibility of top-performing products and revenue drivers, improved KPI tracking accuracy, and streamlined performance reporting for faster business insights.",
-    images: ["/profile.jpg", "/profile.jpg", "/profile.jpg"],
+    images: ["/Pharma.png"],
   },
   {
     title: "Sales Analytics Dashboard",
     objective: "Designed a comprehensive sales dashboard to analyze revenue trends, customer behavior, and product performance across different time periods.",
     outcome: "Improved reporting efficiency through automated calculations and dynamic filtering, allowing stakeholders to quickly identify sales growth patterns and underperforming segments.",
-    images: ["/profile.jpg", "/profile.jpg", "/profile.jpg"],
+    images: ["/Sales Performance.png"],
   },
   {
     title: "Financial Transactions Fraud Analysis Dashboard",
     objective: "Engineered a large-scale data pipeline (SQL + Python + Power BI) to analyze fraud trends across millions of transactions.",
     outcome: "Reduced raw data inconsistencies through SQL cleaning, automated fraud metric calculations, and delivered executive-ready dashboards highlighting fraud concentration patterns and behavioral risk indicators.",
-    images: ["/profile.jpg", "/profile.jpg", "/profile.jpg"],
+    images: ["/FinFraud (1).png", "/FinFraud (2).png"],
   },
   {
     title: "Maternal Health Risk Prediction (Machine Learning Project)",
     objective: "Designed and optimized multiple ML classification models to predict maternal health risk levels using real-world healthcare data.",
     outcome: "Improved minority-class recall using SMOTE and hyperparameter tuning, delivering a stable model with 87%+ accuracy, strong interpretability, and healthcare-ready insights.",
-    images: ["/profile.jpg", "/profile.jpg", "/profile.jpg"],
+    images: ["/MHR (2).png", "/MHR (3).png", "/MHR (4).png", "/MHR (5).png", "/MHR (6).png", "/MHR (7).png", "/MHR (1).png", "/MHR (8).png"],
   }
   
 ];
@@ -516,3 +516,4 @@ export default function Home() {
     </main>
   );
 }
+
