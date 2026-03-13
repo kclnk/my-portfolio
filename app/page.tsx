@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { getSvgPath } from "figma-squircle";
-import { CSSProperties, useState } from "react";
+import { CSSProperties, KeyboardEvent, MouseEvent, useState } from "react";
 
 const services = [
   "Dashboard Development",
@@ -27,21 +27,25 @@ const projects = [
     title: "Pharmaceuticals Sales Performance Dashboard",
     objective: "Developed an interactive dashboard to monitor pharmaceutical sales performance, product distribution, and revenue trends across multiple categories and regions.",
     outcome: "Enabled clear visibility of top-performing products and revenue drivers, improved KPI tracking accuracy, and streamlined performance reporting for faster business insights.",
+    images: ["/profile.jpg", "/profile.jpg", "/profile.jpg"],
   },
   {
     title: "Sales Analytics Dashboard",
     objective: "Designed a comprehensive sales dashboard to analyze revenue trends, customer behavior, and product performance across different time periods.",
     outcome: "Improved reporting efficiency through automated calculations and dynamic filtering, allowing stakeholders to quickly identify sales growth patterns and underperforming segments.",
+    images: ["/profile.jpg", "/profile.jpg", "/profile.jpg"],
   },
   {
     title: "Financial Transactions Fraud Analysis Dashboard",
     objective: "Engineered a large-scale data pipeline (SQL + Python + Power BI) to analyze fraud trends across millions of transactions.",
     outcome: "Reduced raw data inconsistencies through SQL cleaning, automated fraud metric calculations, and delivered executive-ready dashboards highlighting fraud concentration patterns and behavioral risk indicators.",
+    images: ["/profile.jpg", "/profile.jpg", "/profile.jpg"],
   },
   {
     title: "Maternal Health Risk Prediction (Machine Learning Project)",
     objective: "Designed and optimized multiple ML classification models to predict maternal health risk levels using real-world healthcare data.",
     outcome: "Improved minority-class recall using SMOTE and hyperparameter tuning, delivering a stable model with 87%+ accuracy, strong interpretability, and healthcare-ready insights.",
+    images: ["/profile.jpg", "/profile.jpg", "/profile.jpg"],
   }
   
 ];
@@ -57,6 +61,146 @@ const testimonials = [
     author: "Sara, Egypt",
   },
 ];
+
+type Direction = "left" | "right";
+
+type ProjectImagePlaceholderProps = {
+  title: string;
+  images: string[];
+};
+
+function ProjectImagePlaceholder({ title, images }: ProjectImagePlaceholderProps) {
+  const [activeImage, setActiveImage] = useState(0);
+  const [hoverSide, setHoverSide] = useState<Direction | null>(null);
+  const hasMultipleImages = images.length > 1;
+
+  const moveImage = (direction: Direction) => {
+    if (!hasMultipleImages) {
+      return;
+    }
+
+    setActiveImage((currentImage) => {
+      if (direction === "right") {
+        return (currentImage + 1) % images.length;
+      }
+
+      return (currentImage - 1 + images.length) % images.length;
+    });
+  };
+
+  const onMouseMove = (event: MouseEvent<HTMLDivElement>) => {
+    if (!hasMultipleImages) {
+      return;
+    }
+
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const pointerX = event.clientX - bounds.left;
+
+    if (pointerX < bounds.width * 0.33) {
+      setHoverSide("left");
+      return;
+    }
+
+    if (pointerX > bounds.width * 0.67) {
+      setHoverSide("right");
+      return;
+    }
+
+    setHoverSide(null);
+  };
+
+  const onPlaceholderClick = () => {
+    if (!hoverSide) {
+      return;
+    }
+
+    moveImage(hoverSide);
+  };
+
+  const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (!hasMultipleImages) {
+      return;
+    }
+
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      moveImage("left");
+      return;
+    }
+
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      moveImage("right");
+      return;
+    }
+
+    if ((event.key === "Enter" || event.key === " ") && hoverSide) {
+      event.preventDefault();
+      moveImage(hoverSide);
+    }
+  };
+
+  return (
+    <div className="project-placeholder-shell">
+      <div className="project-placeholder-frame">
+        <div
+          className={`project-cutout ${hoverSide ? `is-${hoverSide}` : ""} ${hasMultipleImages ? "cursor-pointer" : ""}`}
+          role={hasMultipleImages ? "button" : undefined}
+          tabIndex={hasMultipleImages ? 0 : undefined}
+          aria-label={hasMultipleImages ? `${title} image gallery. Hover near left or right side then click to switch image.` : undefined}
+          onMouseMove={onMouseMove}
+          onMouseLeave={() => setHoverSide(null)}
+          onClick={onPlaceholderClick}
+          onKeyDown={onKeyDown}
+        >
+          <Image
+            src={images[activeImage]}
+            alt={`${title} preview`}
+            fill
+            className="project-cutout-image object-cover"
+            sizes="(max-width: 768px) 92vw, (max-width: 1200px) 42vw, 500px"
+          />
+
+          {hasMultipleImages && (
+            <>
+              <div className="project-nav-zone left-zone" aria-hidden="true">
+                <span className="project-nav-label">Prev</span>
+              </div>
+              <div className="project-nav-zone right-zone" aria-hidden="true">
+                <span className="project-nav-label">Next</span>
+              </div>
+              <p className="project-image-counter" aria-hidden="true">
+                {activeImage + 1}/{images.length}
+              </p>
+            </>
+          )}
+        </div>
+      </div>
+
+      {hasMultipleImages && (
+        <div className="mt-3 flex items-center justify-between text-xs text-rose-100 sm:hidden">
+          <button
+            type="button"
+            className="rounded-full border border-white/25 bg-black/35 px-3 py-1"
+            onClick={() => moveImage("left")}
+            aria-label={`Previous image for ${title}`}
+          >
+            Prev
+          </button>
+          <p>{activeImage + 1}/{images.length}</p>
+          <button
+            type="button"
+            className="rounded-full border border-white/25 bg-black/35 px-3 py-1"
+            onClick={() => moveImage("right")}
+            aria-label={`Next image for ${title}`}
+          >
+            Next
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Home() {
   const [photoHoverStyle, setPhotoHoverStyle] = useState<CSSProperties>({});
@@ -140,7 +284,7 @@ export default function Home() {
               Python • SQL • Excel • Power BI
             </p>
             <p className="mt-6 max-w-3xl text-base leading-8 text-rose-100/95 md:text-lg">
-              Turning data into insights based on Results-driven, detail-oriented Analysis and, hands-on experience through dashboards, business intelligence, and clear storytelling.
+              Turning data into insights based on Results-driven, detail-oriented Analysis and, hands-on experiencethrough dashboards, business intelligence, and clear storytelling.
               Transforming data into actionable decisions.
             </p>
           </div>
@@ -272,6 +416,7 @@ export default function Home() {
                 className="card-lift animate-reveal rounded-[2rem] border border-white/10 bg-black/25 p-8 backdrop-blur-sm"
                 style={{ animationDelay: `${140 + index * 80}ms` }}
               >
+                <ProjectImagePlaceholder title={project.title} images={project.images} />
                 <p className="text-sm font-semibold text-rose-50 md:text-base">{project.title}</p>
                 <p className="mt-3 text-sm text-rose-100/90 md:text-base">
                   <span className="font-medium text-rose-50">Objective:</span> {project.objective}
