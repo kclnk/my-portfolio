@@ -27,7 +27,7 @@ const projects = [
     title: "HR Analytics Dashboard Suite (Workforce, Attrition, Compensation)",
     objective: "Developed an HR analytics dashboard suite in Power BI to analyze workforce performance, employee demographics, and attrition trends. The project included cleaning and transforming the dataset, removing irrelevant fields, creating calculated columns, and building DAX measures to support key HR metrics.",
     outcome: "Delivered three interactive dashboards providing insights into workforce overview, employee attrition patterns, and compensation distribution. The dashboards help HR teams monitor workforce trends, identify potential retention issues, and support more informed, data-driven HR decisions.",
-    images: ["/Thumbnail2.png", "/Report#1 - Workforce Overview.png", "/Report#2 - Attrition Analysis.png", "/Report#4 - Compensation Analysis.png"],
+    images: ["/Thumbnail2.png", "/Report#1 - Workforce Overview.png", "/Report#2 - Attrition Analysis.png", "/Report#4 - Compensation Analysis.png", "/Model.png"],
   },
   {
     title: "HR Analytics Dashboard Suite (Demographics, Satisfaction & Career)",
@@ -528,5 +528,6 @@ export default function Home() {
     </main>
   );
 }
+
 
 
