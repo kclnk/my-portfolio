@@ -376,7 +376,7 @@ export default function Home() {
 
       <section id="experience" className="section-blend relative w-full bg-portfolio-dark py-16 md:py-22">
         <div className="mx-auto w-full max-w-7xl animate-reveal px-6 md:px-12">
-          <h2 className="text-2xl font-semibold tracking-tight text-rose-50">Work Experience</h2>
+          <h2 className="text-2xl font-semibold tracking-tight text-rose-50">Training and Internships</h2>
           <div className="mt-6 space-y-5 text-sm text-rose-100/90 md:text-base">
             <article>
               <h3 className="font-semibold text-rose-50">Data Analysis Trainee, DEPI, 2025 – Present</h3>
